@@ -1,4 +1,6 @@
-package org.learning;
+package org.exerciseOne;
+
+import java.math.BigDecimal;
 
 public class Main {
 

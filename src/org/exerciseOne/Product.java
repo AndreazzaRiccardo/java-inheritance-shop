@@ -1,43 +1,45 @@
-package org.learning;
+package org.exerciseOne;
 
+import java.math.BigDecimal;
 import java.util.Random;
 
 public class Product {
     private int code;
     private String name;
     private String description;
-    private double price;
-    private double vat;
+    private BigDecimal price;
+    private final BigDecimal vat;
 
-    Random rnd = new Random();
+    private static final Random rnd = new Random();
 
-    public Product(){
-        this.code = rnd.nextInt((999999 - 1 + 1) + 1);
-        this.vat = 22;
+    public Product() {
+        this.code = rnd.nextInt(999999) + 1; // Random code between 1 and 999999
+        this.vat = BigDecimal.valueOf(22); // VAT as BigDecimal
     }
 
     public String getCode() {
-        return  String.format("%06d", code);
+        return String.format("%06d", code);
     }
 
-    public double getFinalPrice() {
-        return price + (price * 22 / 100);
+    public BigDecimal getFinalPrice() {
+        BigDecimal vatAmount = price.multiply(vat.divide(BigDecimal.valueOf(100)));
+        return price.add(vatAmount);
     }
 
     public String getFullName() {
         return getCode() + name;
     }
 
-    public double getVat() {
+    public BigDecimal getVat() {
         return vat;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        this.price = new BigDecimal(price);
     }
 
     public String getDescription() {
