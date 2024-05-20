@@ -5,11 +5,11 @@ import java.security.SecureRandom;
 
 public class Bill {
 
-    private String billNumber;
+    private final String billNumber;
     private String owner;
     private BigDecimal balance;
 
-    public Bill(String owner){
+    public Bill(String owner) {
         this.owner = owner;
         this.billNumber = generateRandomAccountCode();
         this.balance = BigDecimal.ZERO;
@@ -33,14 +33,14 @@ public class Bill {
     }
 
     public boolean dedBalance(BigDecimal ded) {
-        if(balance.compareTo(ded) >= 0){
+        if (balance.compareTo(ded) >= 0) {
             balance = balance.subtract(ded);
             return true;
         }
         return false;
     }
 
-    public String getBillNumber(){
+    public String getBillNumber() {
         return this.billNumber;
     }
 

@@ -4,17 +4,19 @@ import java.math.BigDecimal;
 import java.util.Random;
 
 public class Product {
-    private int code;
-    private String name;
-    private String description;
-    private BigDecimal price;
-    private final BigDecimal vat;
+    private final int code;
+    protected String name;
+    protected String description;
+    protected BigDecimal price;
+    protected final BigDecimal vat;
 
     private static final Random rnd = new Random();
 
-    public Product() {
-        this.code = rnd.nextInt(999999) + 1; // Random code between 1 and 999999
-        this.vat = BigDecimal.valueOf(22); // VAT as BigDecimal
+    public Product(String name, BigDecimal price) {
+        this.code = rnd.nextInt(999999) + 1;
+        this.vat = BigDecimal.valueOf(22);
+        this.name = name;
+        this.price = price;
     }
 
     public String getCode() {
@@ -56,5 +58,9 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void fidelityPrice() {
+        price = price.multiply(BigDecimal.valueOf(0.98));
     }
 }
