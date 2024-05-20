@@ -23,11 +23,11 @@ public class Tv extends Product{
                 '}';
     }
 
-    public void fidelity() {
+    public BigDecimal fidelity(BigDecimal price) {
         if(!isSmart){
-            price =  price.multiply(BigDecimal.valueOf(0.90));
+            return   price.multiply(BigDecimal.valueOf(0.90));
         } else {
-            fidelityPrice();
+            return   super.fidelity(price);
         }
     }
 }

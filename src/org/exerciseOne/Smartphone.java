@@ -29,11 +29,11 @@ public class Smartphone extends Product{
                 '}';
     }
 
-    public void fidelity() {
-        if(memory < 512){
-            price =  price.multiply(BigDecimal.valueOf(0.95));
+    public BigDecimal fidelity(BigDecimal price) {
+        if(memory < 256){
+            return   price.multiply(BigDecimal.valueOf(0.95));
         } else {
-            fidelityPrice();
+            return super.fidelity(price);
         }
     }
 }

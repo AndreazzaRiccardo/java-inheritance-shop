@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Headphones extends Product{
 
-    public enum Type {wireless, cable};
+    public enum Type {WIRELESS, CABLE};
 
     private String color;
     private Type type;
@@ -25,11 +25,11 @@ public class Headphones extends Product{
                 '}';
     }
 
-    public void fidelity() {
-        if(type == Type.cable){
-            price =  price.multiply(BigDecimal.valueOf(0.93));
+    public BigDecimal fidelity(BigDecimal price) {
+        if(type == Type.CABLE){
+            return   price.multiply(BigDecimal.valueOf(0.93));
         } else {
-            fidelityPrice();
+            return   super.fidelity(price);
         }
     }
 }

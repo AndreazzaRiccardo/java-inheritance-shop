@@ -60,7 +60,7 @@ public class Product {
         this.name = name;
     }
 
-    public void fidelityPrice() {
-        price = price.multiply(BigDecimal.valueOf(0.98));
+    public BigDecimal fidelity(BigDecimal price) {
+        return price.multiply(BigDecimal.valueOf(0.98));
     }
 }

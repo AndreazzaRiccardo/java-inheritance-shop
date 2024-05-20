@@ -41,7 +41,7 @@ public class Cart {
                     cart[i] = new Smartphone(productName, price, memoryPhone);
                     if (fidelity){
                         Smartphone phone = (Smartphone) cart[i];
-                        phone.fidelity();
+                        phone.price = phone.fidelity(price);
                     }
                     break;
                 case "tv":
@@ -52,18 +52,18 @@ public class Cart {
                     cart[i] = new Tv(productName, price, isSmart, size);
                     if (fidelity){
                         Tv tv = (Tv) cart[i];
-                        tv.fidelity();
+                        tv.price = tv.fidelity(price);
                     }
                     break;
                 case "headphones":
                     System.out.print("Chose color : ");
                     String color = scann.nextLine();
                     System.out.print("Chose type : ");
-                    String type = scann.nextLine();
+                    String type = scann.nextLine().toUpperCase();
                     cart[i] = new Headphones(productName, price, color, Headphones.Type.valueOf(type));
                     if (fidelity){
                         Headphones headphones = (Headphones) cart[i];
-                        headphones.fidelity();
+                        headphones.price = headphones.fidelity(price);
                     }
                     break;
                 default:
